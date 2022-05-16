@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Github Auto reviewers",
+  "description": "Automatically add the owners group as code reviewers for the PR",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-34.png"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gitlab.com/**/*"],
+      "run_at": "document_idle",
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
+      "matches": []
+    }
+  ]
+}
